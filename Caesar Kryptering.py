@@ -10,8 +10,9 @@ def rot(char:str,key:int):
     char_index=alfabet.find(char)
     # Og så rotere vi karakteren med den angivet key
     rot_index=key+char_index
-    
+    # Hvis vores roteret karakter er over alfabetet minuser vi det med 1 så det ikke går ud over
     if rot_index > len(alfabet)-1:
+        #
         rot_index=rot_index % len(alfabet)
     return alfabet[rot_index]
 
