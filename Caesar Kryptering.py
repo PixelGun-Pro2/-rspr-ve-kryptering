@@ -1,7 +1,16 @@
+from numpy import char
+
 alfabet= 'abcdefghijklmnopqrstuvwxyzæøå?!,.:'
 
 # Denne funktion kan tage en karakter fra alfabetet og rotere den ud fra det angivet tal fra key
 def rot(char:str,key:int):
+    # her checker vi om der bliver brugt mellemrum eller en anden art for det
+    if char == " ":
+        return " "
+    if char == "-":
+        return " "
+    if char == "_":
+        return " "
     # Her tjekker koden om den angivet karakter er i alfabetet og om det kun er 1 bogstav
     if not char in alfabet or len(char)!=1:
         # Ellers spytter den bare et "#" ud
@@ -12,7 +21,7 @@ def rot(char:str,key:int):
     rot_index=key+char_index
     # Hvis vores roteret karakter er over alfabetet minuser vi det med 1 så det ikke går ud over
     if rot_index > len(alfabet)-1:
-        #
+        # 
         rot_index=rot_index % len(alfabet)
     return alfabet[rot_index]
 
@@ -25,4 +34,4 @@ def encrypt(msg:str,key:int):
     return out
 
 # Det vi kan gøre nu er at udskrive vores angivet besked i msg og tallet i key som rotere beskeden
-print(encrypt('hello', 2))
+print(encrypt('bury the light', 5))
